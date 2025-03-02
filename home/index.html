@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tayo - Designer & Photographer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1a2836;
+            color: white;
+            min-height: 100vh;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 2rem 5rem;
+            margin-left: 0;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        h1 span.tayo-text {
+            color: #5d8cb3;
+        }
+        
+        .subheading {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            background-color: #5d8cb3;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #4a7ca3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn i {
+            font-size: 1.2rem;
+        }
+        
+        .blur-text {
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subheading {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: fit-content;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><span class="blur-text-container">hey, i'm </span><span class="blur-text-container tayo-text">tayo</span><span class="blur-text-container">!</span></h1>
+        <p class="subheading blur-text-container">experience in graphic design & photography</p>
+        <div class="buttons">
+            <a href="/about/" class="btn">
+                <i class="fas fa-user"></i>
+                about me
+            </a>
+            <a href="/work/" class="btn">
+                <i class="fas fa-briefcase"></i>
+                about me
+            </a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@react-spring/web@9.5.5/index.js"></script>
+
+    <script type="module">
+        // Import your BlurText component - assuming you've saved it as BlurText.js in your repo
+        import BlurText from "./BlurText.js";
+        
+        // Text animation elements
+        const headingElement = document.querySelector('h1 .blur-text-container:first-child');
+        const tayoElement = document.querySelector('.tayo-text');
+        const exclamElement = document.querySelector('h1 .blur-text-container:last-child');
+        const subheadingElement = document.querySelector('.subheading');
+        
+        // Initialize BlurText for each text element
+        const handleAnimationComplete = () => {
+          console.log('Animation completed!');
+        };
+        
+        // Apply BlurText to the heading parts
+        ReactDOM.render(
+            React.createElement(BlurText, {
+                text: "hey, i'm",
+                delay: 50,
+                animateBy: "letters",
+                direction: "top",
+                onAnimationComplete: handleAnimationComplete,
+                className: "text-2xl"
+            }),
+            headingElement
+        );
+        
+        ReactDOM.render(
+            React.createElement(BlurText, {
+                text: "tayo",
+                delay: 50,
+                animateBy: "letters",
+                direction: "top",
+                onAnimationComplete: handleAnimationComplete,
+                className: "text-2xl tayo-color"
+            }),
+            tayoElement
+        );
+        
+        ReactDOM.render(
+            React.createElement(BlurText, {
+                text: "!",
+                delay: 50,
+                animateBy: "letters",
+                direction: "top",
+                onAnimationComplete: handleAnimationComplete,
+                className: "text-2xl"
+            }),
+            exclamElement
+        );
+        
+        // Apply BlurText to the subheading
+        ReactDOM.render(
+            React.createElement(BlurText, {
+                text: "experience in graphic design & photography",
+                delay: 50,
+                animateBy: "letters",
+                direction: "top",
+                onAnimationComplete: handleAnimationComplete,
+                className: "text-xl"
+            }),
+            subheadingElement
+        );
+    </script>
+</body>
+</html>
