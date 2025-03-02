@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tayo - Designer & Photographer</title>
+    <title>hey, i'm tayo!</title>
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://woahtayo.github.io/home/">
+    <meta property="og:title" content="hey, i'm tayo!">
+    <meta property="og:description" content="check out my work here - i have experience in graphic design & photography">
+    <meta property="og:image" content="https://cdn.discordapp.com/avatars/245224574940217344/a6ebb8141d431f50d1bba150b27f6003.png?size=512">
+    <meta name="theme-color" content="#5d8cb3">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +25,7 @@
         
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #1a2836;
+            background: radial-gradient(circle, #0F1C2E 0%, #1A2A36 87%);
             color: white;
             min-height: 100vh;
             padding: 0;
@@ -121,15 +129,15 @@
 <body>
     <div class="container">
         <h1><span class="blur-text-container">hey, i'm </span><span class="blur-text-container tayo-text">tayo</span><span class="blur-text-container">!</span></h1>
-        <p class="subheading blur-text-container">experience in graphic design & photography</p>
+        <p class="subheading blur-text-container">experience in graphic design + photography</p>
         <div class="buttons">
             <a href="/about/" class="btn">
-                <i class="fas fa-user"></i>
+                <i class="user-round.svg"></i>
                 about me
             </a>
             <a href="/work/" class="btn">
-                <i class="fas fa-briefcase"></i>
-                about me
+                <i class="/assets/gallery-vertical-end.svg"></i>
+                portfolio
             </a>
         </div>
     </div>
@@ -137,23 +145,19 @@
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@react-spring/web@9.5.5/index.js"></script>
-
+    
     <script type="module">
-        // Import your BlurText component - assuming you've saved it as BlurText.js in your repo
         import BlurText from "./BlurText.js";
         
-        // Text animation elements
         const headingElement = document.querySelector('h1 .blur-text-container:first-child');
         const tayoElement = document.querySelector('.tayo-text');
         const exclamElement = document.querySelector('h1 .blur-text-container:last-child');
         const subheadingElement = document.querySelector('.subheading');
         
-        // Initialize BlurText for each text element
         const handleAnimationComplete = () => {
           console.log('Animation completed!');
         };
         
-        // Apply BlurText to the heading parts
         ReactDOM.render(
             React.createElement(BlurText, {
                 text: "hey, i'm",
@@ -190,7 +194,6 @@
             exclamElement
         );
         
-        // Apply BlurText to the subheading
         ReactDOM.render(
             React.createElement(BlurText, {
                 text: "experience in graphic design & photography",
